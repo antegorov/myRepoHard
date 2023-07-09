@@ -1,106 +1,18 @@
-"use strict";
-let num = 266219;
+'use strict'
 
-let result = 1;
-num
-	.toString()
-	.split("")
-	.forEach(function (element) {
-		result *= element;
-	});
+let variable = 5
+let newVar
 
-console.log(result);
-console.log((result ** 3).toString().substring(0, 2));
-
-// 1)
-let lang;
-let ruWeek = [
-	"Понедельник",
-	"Вторник",
-	"Среда",
-	"Четверг",
-	"Пятница",
-	"Суббота",
-	"Воскресенье"
-];
-
-let enWeek = [
-	"Monday",
-	"Tuesday",
-	"Wednesday",
-	"Thursday",
-	"Friday",
-	"Saturday",
-	"Sunday"
-];
-
-function langOptionIf() {
-	do {
-		lang = prompt('Укажите значение переменной "lang"', '"ru" / "en" ');
-	} while (lang !== "ru" && lang !== "en");
-
-	if (lang === "ru") {
-		for (let i = 0; i < ruWeek.length; i++) {
-			console.log(ruWeek[i]);
-		}
-		return;
+const strOption = function (variable) {
+	if (typeof variable == 'string') {
+		newVar = variable.replace(/^ +| +$/g, '')
+		if (variable.length > 30) newVar = newVar.slice(0, 30) + '...'
 	} else {
-		for (let i = 0; i < enWeek.length; i++) {
-			console.log(enWeek[i]);
-		}
-		return;
+		newVar = 'Это не строка'
 	}
-}
-function langOptionSwitch() {
-	do {
-		lang = prompt('Укажите значение переменной "lang"', '"ru" / "en" ');
-	} while (lang !== "ru" && lang !== "en");
-
-	switch (true) {
-		case lang == "ru":
-			for (let i = 0; i < ruWeek.length; i++) {
-				console.log(ruWeek[i]);
-			}
-			break;
-		case lang == "en":
-			for (let i = 0; i < enWeek.length; i++) {
-				console.log(enWeek[i]);
-			}
-			break;
-	}
+	return newVar
 }
 
-function langOptionArray() {
-	do {
-		lang = prompt('Укажите значение переменной "lang"', '"ru" / "en" ');
-	} while (lang !== "ru" && lang !== "en");
+strOption(variable)
 
-	let weeksArray = [];
-	weeksArray["ru"] = ruWeek;
-	weeksArray["en"] = enWeek;
-
-	for (let i = 0; i < weeksArray[lang].length; i++) {
-		console.log(weeksArray[lang][i]);
-	}
-}
-
-//a
-//langOption();
-
-//b
-//langOptionSwitch();
-
-//c
-//langOptionArray();
-
-// 2)
-function namePersonChange() {
-	let namePerson = prompt("Введите имя");
-	namePerson == "Артем"
-		? console.log("директор")
-		: namePerson == "Александр"
-		? console.log("преподаватель")
-		: console.log("студент");
-}
-
-namePersonChange();
+console.log(newVar)
